@@ -1,5 +1,7 @@
 package utilities;
 
+import org.openqa.selenium.JavascriptExecutor;
+
 import java.util.Random;
 
 public class CommonFunctions {
@@ -13,4 +15,9 @@ public class CommonFunctions {
     String randomNumber= String.format("%."+decimals+"f",dbl);
     System.out.println(randomNumber);
   }
+
+    public void scrollWebPage() {
+      JavascriptExecutor js= (JavascriptExecutor) ThreadLocalDriver.getWebDriverThreadLocal();
+      js.executeScript("window.scrollBy(0,400)");
+    }
 }

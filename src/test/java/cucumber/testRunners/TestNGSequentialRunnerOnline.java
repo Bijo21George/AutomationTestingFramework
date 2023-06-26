@@ -5,6 +5,7 @@ import io.cucumber.testng.FeatureWrapper;
 import io.cucumber.testng.PickleWrapper;
 import io.cucumber.testng.TestNGCucumberRunner;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.remote.DesiredCapabilities;
 import org.openqa.selenium.remote.RemoteWebDriver;
 import org.testng.Reporter;
@@ -21,7 +22,7 @@ import java.net.URL;
  */
 @CucumberOptions(
         monochrome = true,
-        tags = "@MyntraScenario",
+        tags = "@MyntraScenario3",
         features = "src/test/java/cucumber/features",
         glue = "cucumber.stepdefinitions",
         publish = false,
@@ -50,8 +51,11 @@ public class TestNGSequentialRunnerOnline {
     if (Reporter.getCurrentTestResult().getTestContext().getCurrentXmlTest().getParameter("Cloud").equalsIgnoreCase("true")) {
       ThreadLocalDriver.setRemoteWebDriverThreadLocal(new RemoteWebDriver(new URL("http://" + browserStackUsername + ":" + browserStackAccessKey + "@" + browserStackServer + "/wd/hub"), caps));
     } else {
-      System.setProperty("webdriver.chrome.driver", "C:\\Softwares\\chromedriver_win32\\chromedriver.exe");
-      ThreadLocalDriver.setWebDriverThreadLocal(new ChromeDriver());
+      System.setProperty("webdriver.chrome.driver", "C:\\Software\\chromedriver_win32\\chromedriver.exe");
+      //Disbale pop up code given below 3lines
+      ChromeOptions chromeOptions = new ChromeOptions();
+      chromeOptions.addArguments("--disable-notifications");
+      ThreadLocalDriver.setWebDriverThreadLocal(new ChromeDriver(chromeOptions));
     }
   }
 
