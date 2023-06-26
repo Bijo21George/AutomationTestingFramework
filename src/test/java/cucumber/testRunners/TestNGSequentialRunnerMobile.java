@@ -18,7 +18,7 @@ import java.net.URL;
 
 @CucumberOptions(
         monochrome = true,
-        tags = "@MyntraScenario",
+        tags = "@WikiScenario2ax",
         features = "src/test/java/cucumber/features",
         glue = "cucumber.stepdefinitions",
         publish = false,

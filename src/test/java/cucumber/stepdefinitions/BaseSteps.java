@@ -13,14 +13,14 @@ import pages.WikiHomePage;
  * this class is used to initialize page classes with driver.
  */
 public class BaseSteps {
-  protected WikiHomePage bsAppScreen;
+  protected WikiHomePage wikiHomePage;
   protected MyntraHomePage myntraHomePage;
   protected OnlineMyntraHomePage onlineMyntraHomePage;
   protected LocalOnlineMyntraHomePage localOnlineMyntraHomePage;
 
   public void setupScreens(AppiumDriver<MobileElement> driver) {
     myntraHomePage = new MyntraHomePage(driver);
-    bsAppScreen = new WikiHomePage(driver);
+    wikiHomePage = new WikiHomePage(driver);
   }
 
   public void setupScreensOnline(RemoteWebDriver driver) {

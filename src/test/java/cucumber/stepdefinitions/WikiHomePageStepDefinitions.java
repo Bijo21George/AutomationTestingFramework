@@ -20,31 +20,41 @@ public class WikiHomePageStepDefinitions extends BaseSteps {
 
   @Given("User is on Wiki home page")
   public void userIsOnBSHomePage() {
-    bsAppScreen.userOnWikiHomePage();
+    wikiHomePage.userOnWikiHomePage();
   }
 
   @When("User clicks History Two")
   public void userClicksButton() {
-    bsAppScreen.clickHistoryElement();
+    wikiHomePage.clickHistoryElement();
   }
 
   @And("User clicks on Nearby Three")
   public void userClicksOnButtonA() {
-    bsAppScreen.clickNearbyElement();
+    wikiHomePage.clickNearbyElement();
   }
 
   @And("User clicks on Wiki Explore Four")
   public void userClicksOnButtonB() {
-    bsAppScreen.clickExploreElement();
+    wikiHomePage.clickExploreElement();
   }
 
   @Then("Verify InTheNewsTitle")
   public void verifyButton() {
-    bsAppScreen.assertInTheNewsTitleIsAsExpected();
+    wikiHomePage.assertInTheNewsTitleIsAsExpected();
   }
 
   @When("User clicks List One")
   public void userClicksList() {
-    bsAppScreen.clickListElement();
+    wikiHomePage.clickListElement();
+  }
+
+  @When("User clicks WebView")
+  public void userClicksWebView() {
+    wikiHomePage.webViewClick();
+  }
+
+  @Then("WebView page should be displayed")
+  public void webviewPageShouldBeDisplayed() {
+    wikiHomePage.verifyWebViewHeader();
   }
 }

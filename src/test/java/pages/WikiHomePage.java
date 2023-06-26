@@ -57,6 +57,22 @@ public class WikiHomePage {
     return InTheNewsTitleBy;
   }
 
+  @AndroidFindBy(xpath = "//*[@text='cv']")
+  @iOSXCUITFindBy(xpath = "//*[@text='cv']")
+  MobileElement webViewButton;
+  public MobileElement getWebViewButton()
+  {
+    return webViewButton;
+  }
+
+  @AndroidFindBy(xpath = "//*[@text='sdf']")
+  @iOSXCUITFindBy(xpath = "//*[@text='sdf']")
+  MobileElement webViewHeader;
+
+  public MobileElement getWebViewHeader() {
+    return webViewHeader;
+  }
+
   /**
    * Actions
    */
@@ -99,5 +115,13 @@ public class WikiHomePage {
   public void userOnWikiHomePage() {
     //  Thread.sleep(3000);
 //    test.get().log(Status.INFO, "Verify Explore button", MediaEntityBuilder.createScreenCaptureFromBase64String(takeScreenshotAsBase64()).build());
+  }
+
+  public void webViewClick() {
+    getWebViewButton().click();
+  }
+
+  public void verifyWebViewHeader() {
+    Assert.assertTrue(getWebViewHeader().isDisplayed(),"Verified");
   }
 }

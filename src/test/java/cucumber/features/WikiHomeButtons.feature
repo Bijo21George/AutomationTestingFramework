@@ -9,3 +9,10 @@ Feature: Browser Stack Sample App Home page.
 #    And User clicks on Nearby Three
 #    And User clicks on Wiki Explore Four
 #    Then Verify InTheNewsTitle
+
+  @WikiScenario2ax
+  Scenario: Validate home page buttons
+    Given User is on Wiki home page
+    When User clicks WebView
+    Then WebView page should be displayed
+
